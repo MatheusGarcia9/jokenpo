@@ -33,6 +33,8 @@ const audioDaVitoria = document.getElementById("audioDaVitoria");
 
 const audioDaDerrota = document.getElementById("audioDaDerrota");
 
+const resetPagina = document.getElementById("resetButton")
+
 /**
  * 
  * A função deve atualizar o placar na tela
@@ -136,17 +138,17 @@ function mostrarJogadaDoComputador(escolhaDoComp) {
     switch (escolhaDoComp) {
         case PAPEL:
             src = "./images/paper.png";
-        break;  
+            break;
         case TESOURA:
             src = "./images/scissors.png";
-        break;
+            break;
         case PEDRA:
             src = "./images/rock.png";
-        break;
+            break;
     }
     img.src = src;
 
-    divJogadaDoComputador.innerText ="";
+    divJogadaDoComputador.innerText = "";
     divJogadaDoComputador.appendChild(img)
 }
 
@@ -179,6 +181,18 @@ function onPedraClick() {
     jokenpo(PEDRA);
 }
 
+function resetarPlacar() {
+    pontosDoComputador = 0;
+    pontosDoUsuario = 0;
+    spanPlacarUsuario.innerText = pontosDoUsuario;
+    spanPlacarComputador.innerText = pontosDoComputador;
+}
+
+resetPagina.addEventListener('click', resetarPlacar)
+
+
 imgPapel.addEventListener('click', onPapelClick);
 imgTesoura.addEventListener('click', onTesouraClick);
 imgPedra.addEventListener('click', onPedraClick);
+
+
